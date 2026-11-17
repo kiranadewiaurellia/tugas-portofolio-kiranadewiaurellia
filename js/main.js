@@ -118,7 +118,7 @@ if (daftarProyek) {
   pasangFilter("#filter-javascript", "JavaScript");
 }
 // 5. Repositori GitHub terbaru (halaman Proyek)
-const username = "kiranadewiaurellia-salah";
+const username = "kiranadewiaurellia";
 const alamatRepo = `https://api.github.com/users/${username}/repos`;
 const pilihan = "?sort=updated&per_page=6";
 
