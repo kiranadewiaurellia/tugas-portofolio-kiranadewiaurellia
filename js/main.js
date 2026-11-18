@@ -153,3 +153,19 @@ async function ambilRepo() {
 if (daftarRepo) {
   ambilRepo();
 } 
+// 6. Tombol sembunyikan repositori
+const tombolRepo = document.querySelector("#tombol-repo");
+if (tombolRepo) {
+  tombolRepo.addEventListener("click", () => {
+    if (daftarRepo.style.display === "none") {
+      daftarRepo.style.display = "block";
+      tombolRepo.textContent = "Sembunyikan Repositori";
+    } else {
+      daftarRepo.style.display = "none";
+      tombolRepo.textContent = "Tampilkan Repositori";
+    }
+  });
+}
+if (daftarRepo) {
+  ambilRepo();
+}

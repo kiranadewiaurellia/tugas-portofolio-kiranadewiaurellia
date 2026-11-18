@@ -334,3 +334,19 @@ body.gelap {
   --warna-kartu: #1C2836;
   --warna-garis: #34465A;
 }
+
+.tombol-kecil{
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--warna-aksen);
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tersembunyi {
+  display: none;
+}
