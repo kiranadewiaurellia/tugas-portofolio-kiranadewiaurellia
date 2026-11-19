@@ -1,17 +1,47 @@
-/* ===== GANTI WARNA DI SINI SAJA ===== */
-.kalkulator {
-  --biru: #52d0fa;          /* tombol dan fokus input */
-  --biru-gelap: #52d0fa;    /* tombol saat disorot */
-  --biru-muda: #cfe8ff;     /* biru pastel (garis atas) */
-  --teks: #3d5a80;          /* judul, label, dan teks hasil */
+/* ===== WARNA MODE TERANG (default) - GANTI WARNA DI SINI ===== */
+:root {
+  --biru: #E63946;          /* tombol dan fokus input */
+  --biru-gelap: #1d82b5;    /* tombol saat disorot */
+  --biru-muda: #cfe8ff;     /* garis atas dan border */
+  --teks: #3d5a80;          /* judul, label, teks hasil */
   --kotak: #ffffff;         /* latar kotak kalkulator */
   --hasil: #eef7ff;         /* latar kotak hasil */
+  --input-bg: #fbfdff;      /* latar kolom input */
+  --border: #dcecfb;        /* border kotak dan input */
+  --bayangan: rgba(43, 159, 214, 0.22);
+  --latar-1: #ffffff;       /* gradasi latar halaman */
+  --latar-2: #eaf5ff;
+  --latar-3: #d6ebff;
 }
 
-/* Latar halaman: gradasi putih ke biru pastel */
+/* ===== WARNA MODE GELAP =====
+   Sesuaikan selector dengan yang dipakai main.js kamu
+   (misalnya document.body.classList.toggle("dark")).
+   Selector yang tidak dipakai boleh dibiarkan. */
+body.dark,
+body.dark-mode,
+body.mode-gelap,
+body.gelap,
+[data-theme="dark"] {
+  --biru: #E63946;
+  --biru-gelap: #E63946;
+  --biru-muda: #2a4a66;
+  --teks: #dbe9f7;
+  --kotak: #1b2636;
+  --hasil: #223247;
+  --input-bg: #141d2b;
+  --border: #2d4057;
+  --bayangan: rgba(0, 0, 0, 0.45);
+  --latar-1: #0d1520;
+  --latar-2: #121c2a;
+  --latar-3: #172436;
+}
+
+/* Latar halaman */
 body {
-  background: linear-gradient(160deg, #ffffff 0%, #eaf5ff 50%, #d6ebff 100%);
+  background: linear-gradient(160deg, var(--latar-1) 0%, var(--latar-2) 50%, var(--latar-3) 100%);
   min-height: 100vh;
+  transition: background 0.3s;
 }
 
 /* ===== KOTAK KALKULATOR ===== */
@@ -24,14 +54,15 @@ body {
   background: var(--kotak);
   padding: 34px 28px 28px;
   border-radius: 24px;
-  border: 1px solid #dcecfb;
-  box-shadow: 0 18px 40px rgba(107, 182, 242, 0.22);
+  border: 1px solid var(--border);
+  box-shadow: 0 18px 40px var(--bayangan);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  transition: background 0.3s, border-color 0.3s;
 }
 
-/* Garis gradasi biru pastel di atas kotak */
+/* Garis gradasi di atas kotak */
 .kalkulator::before {
   content: "";
   position: absolute;
@@ -59,18 +90,18 @@ body {
 .kalkulator input {
   width: 100%;
   padding: 10px 14px;
-  border: 2px solid #dcecfb;
+  border: 2px solid var(--border);
   border-radius: 12px;
-  background: #fbfdff;
+  background: var(--input-bg);
+  color: var(--teks);
   font-size: 15px;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Saat kolom diklik */
 .kalkulator input:focus {
   outline: none;
   border-color: var(--biru);
-  box-shadow: 0 0 0 4px rgba(107, 182, 242, 0.22);
+  box-shadow: 0 0 0 4px var(--bayangan);
 }
 
 /* ===== TOMBOL ===== */
@@ -90,7 +121,7 @@ body {
 .kalkulator button:hover {
   background: var(--biru-gelap);
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(107, 182, 242, 0.45);
+  box-shadow: 0 8px 18px var(--bayangan);
 }
 
 .kalkulator button:active {
@@ -109,13 +140,13 @@ body {
   color: var(--teks);
 }
 
-/* Sembunyikan kotak hasil selama masih kosong */
 #hasil:empty {
   display: none;
 }
 
 /* ===== LINK KEMBALI ===== */
 .kembali {
+  display: block;
   margin-top: 12px;
   text-align: center;
   font-size: 14px;

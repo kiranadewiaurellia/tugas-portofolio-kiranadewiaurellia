@@ -166,6 +166,3 @@ if (tombolRepo) {
     }
   });
 }
-if (daftarRepo) {
-  ambilRepo();
-}
