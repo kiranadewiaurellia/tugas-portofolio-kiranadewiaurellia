@@ -34,4 +34,3 @@ dan laptop, serta interaktif dengan JavaScript.
 
 - Website: tugas-portofolio-kiranadewiaurellia.vercel.app
 - Dibuat oleh: Kirana Dewi Aurellia, SMK Brantas Karangkates
-ngene a
